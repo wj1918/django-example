@@ -44,15 +44,15 @@ Install the RHC client tools if you have not already done so:
     
     sudo gem install rhc
 
-Create a python-2.6 application
+Create a python-2.7 application
 
-    rhc app create -a django -t python-2.6
+    rhc app create -a django -t python-2.7
 
 Add this upstream repo
 
     cd django
-    git remote add upstream -m master git://github.com/openshift/django-example.git
-    git pull -s recursive -X theirs upstream master
+    git remote add upstream -m python27 git://github.com/suhailvs/django-example.git
+    git pull -s recursive -X theirs upstream python27
 
 Then push the repo upstream
 
