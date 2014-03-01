@@ -51,7 +51,7 @@ Create a python application
 Add this upstream repo
 
     cd django
-    git remote add upstream -m master git://github.com/openshift/django-example.git
+    git remote add upstream -m master git://github.com/suhailvs/django-example.git
     git pull -s recursive -X theirs upstream master
 
 Then push the repo upstream
