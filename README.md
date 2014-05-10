@@ -75,17 +75,8 @@ Now you should be able to checkout your site
 
     http://django-$yournamespace.rhcloud.com
 
-<<<<<<< HEAD
 Admin user name and password
 ----------------------------
-As the `git push` output scrolls by, keep an eye out for a
-line of output that starts with `Django application credentials: `. This line
-contains the generated admin password that you will need to begin
-administering your Django app. This is the only time the password
-will be displayed, so be sure to save it somewhere. You might want 
-to pipe the output of the git push to a text file so you can grep for
-the password later.
-=======
 To create the admin user and password, access via SSH to your repo on openshift. You can check your SSH info by doing
 
     rhc ssh 
