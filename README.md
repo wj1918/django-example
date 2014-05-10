@@ -88,11 +88,13 @@ the password later.
 =======
 To create the admin user and password, access via SSH to your repo on openshift. You can check your SSH info by doing
 
-    rhc domain
+    rhc ssh 
 
 When you are logged in to the server, do this
 
-    python-2.6/virtenv/bin/python app-root/repo/wsgi/openshift/manage.py createsuperuser
+	source $VIRTUAL_ENV/bin/activate
+	cd $OPENSHIFT_REPO_DIR/wsgi/openshift
+	python manage.py createsuperuser
 
 And write the info it asks you for, and that's it (:
 
