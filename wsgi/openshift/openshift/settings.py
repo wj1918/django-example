@@ -50,17 +50,31 @@ if 'OPENSHIFT_DATA_DIR' in os.environ:
     use_keys = openshiftlibs.openshift_secure({'SECRET_KEY':SECRET_KEY})
     # Make this unique, and don't share it with anybody.
     SECRET_KEY = use_keys['SECRET_KEY']
+    
+    # os.environ['OPENSHIFT_MYSQL_DB_*'] variables can be used with databases created
+    # with rhc cartridge add (see /README in this git repo)
+    DATABASES = { 
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['OPENSHIFT_APP_NAME'],
+            'USER': os.environ['OPENSHIFT_MYSQL_DB_USERNAME'],
+            'PASSWORD': os.environ['OPENSHIFT_MYSQL_DB_PASSWORD'],
+            'HOST': os.environ['OPENSHIFT_MYSQL_DB_HOST'],
+            'PORT': os.environ['OPENSHIFT_MYSQL_DB_PORT']
+        }   
+    }
+    
 else:
     #IF LOCALHOST
     dbpath=BASE_DIR
     STATICFILES_DIRS = (os.path.join(BASE_DIR,'..','..', 'static'),)
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(dbpath, 'sqlite3.db'),
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(dbpath, 'sqlite3.db'),
+        }
     }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
