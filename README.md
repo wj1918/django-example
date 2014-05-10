@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Django on OpenShift
 ===================
 
@@ -53,7 +52,6 @@ https://github.com/openshift/django-example
 
 Run this code on openshift:
 ---------------------------
->>>>>>> work2/master
 
 Create a python-2.7 application
 
@@ -61,18 +59,13 @@ Create a python-2.7 application
 
 Add the MySQL cartridge.
 
-    rhc cartridge add mysql-5.1 -a django 
+    rhc cartridge add mysql-5.5 -a django 
 
 Add this upstream repo
 
     cd django
-<<<<<<< HEAD
-    git remote add upstream -m python27 git://github.com/suhailvs/django-example.git
-    git pull -s recursive -X theirs upstream python27
-=======
-    git remote add upstream -m master git://github.com/rugebiker/openshift-django-mysql.git
-    git pull -s recursive -X theirs upstream master
->>>>>>> work2/master
+    git remote add upstream -m master https://github.com/wj1918/django-example.git 
+    git pull -s recursive -X theirs upstream mysql 
 
 Then push the repo upstream
     
@@ -103,7 +96,3 @@ When you are logged in to the server, do this
 
 And write the info it asks you for, and that's it (:
 
-If you have any issues you can contact me at rguerra.marin@gmail.com
->>>>>>> work2/master
-
-Buena suerte!
